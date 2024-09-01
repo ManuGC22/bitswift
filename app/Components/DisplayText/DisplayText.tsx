@@ -29,7 +29,7 @@ const DisplayText = ({ children, fontWeight, ...props }: IDisplayTextProps) => {
   }, [fontWeight]);
 
   return (
-    <Text {...props} fontFamily={fontFamily}>
+    <Text color={"white"} {...props} fontFamily={fontFamily}>
       {displayValue}
     </Text>
   );
