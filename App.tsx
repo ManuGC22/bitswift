@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
-import { Box } from "@/Components";
+import { StyleSheet, SafeAreaView } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import { TamaguiProvider } from "tamagui";
+import { CryptoOverviewFeature } from "@/Features";
+import Colors from "@/Core/Colors";
 import config from "./tamagui.config";
 
 export default function App() {
@@ -26,9 +27,11 @@ export default function App() {
   }
   return (
     <TamaguiProvider config={config}>
-      <Box style={styles.container}>
-        <StatusBar style="auto" />
-      </Box>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <CryptoOverviewFeature.Screens.CryptoOverviewScreen />
+        </SafeAreaView>
+      </SafeAreaProvider>
     </TamaguiProvider>
   );
 }
@@ -36,8 +39,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: Colors.background,
   },
 });
