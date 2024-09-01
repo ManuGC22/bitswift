@@ -42,9 +42,9 @@ To get started with BitSwift, follow these steps:
 
 Once the app is running:
 
-Home Screen: View the top cryptocurrencies by market cap, updated every 40 seconds.
-Crypto Detail View: Tap on any cryptocurrency to view more details, such as market cap, 24-hour volume, and all-time high.
-Real-Time Updates: The app will automatically refresh to provide the latest market information.
+- Home Screen: View the top cryptocurrencies by market cap, updated every 40 seconds.
+- Crypto Detail View: Tap on any cryptocurrency to view more details, such as market cap, 24-hour volume, and all-time high.
+- Real-Time Updates: The app will automatically refresh to provide the latest market information.
 
 ## Technologies Used
 
