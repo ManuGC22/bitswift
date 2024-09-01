@@ -2017,6 +2017,14 @@
     "@tamagui/use-presence" "1.110.1"
     "@tamagui/web" "1.110.1"
 
+"@tamagui/animations-moti@1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/animations-moti/-/animations-moti-1.110.1.tgz#95175f3039a961184bf325d53f2080026764f1b1"
+  integrity sha512-dQjAYYHLiTFXWl6cND5aV1IZ0XoktmOwvOlYG5lN/RgS5gJ/lvJS/V8VoFta3QWLs6g5eJ0HBKlhhedXvwGUCw==
+  dependencies:
+    "@tamagui/use-presence" "1.110.1"
+    "@tamagui/web" "1.110.1"
+
 "@tamagui/animations-react-native@1.110.1":
   version "1.110.1"
   resolved "https://registry.yarnpkg.com/@tamagui/animations-react-native/-/animations-react-native-1.110.1.tgz#93d8159a8fe047cdb941115d1b78e8f3c9687090"
@@ -2170,6 +2178,11 @@
     "@tamagui/stacks" "1.110.1"
     "@tamagui/use-controllable-state" "1.110.1"
 
+"@tamagui/colors@1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/colors/-/colors-1.110.1.tgz#7f698c41933d8cc9222f4cea7cd9d47d5ca7c4df"
+  integrity sha512-K4EJimqx3ejXXrTht/oI5AK4kmAldHZSEHnxFPY8o8q/LWxQdCcztZdmejwzxudWtCjfkKaAHzB7EpQuphv7IQ==
+
 "@tamagui/compose-refs@1.110.1":
   version "1.110.1"
   resolved "https://registry.yarnpkg.com/@tamagui/compose-refs/-/compose-refs-1.110.1.tgz#b3d89682cfe42e9b529ddd56c1a3e1bb1eb57093"
@@ -2183,6 +2196,22 @@
     "@tamagui/animations-css" "1.110.1"
     "@tamagui/core" "1.110.1"
     "@tamagui/shorthands" "1.110.1"
+
+"@tamagui/config@^1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/config/-/config-1.110.1.tgz#48eb97d96ca00e39743570ecd6fce53d703d74ae"
+  integrity sha512-DlLpVTyvTS2rmMOJV/BPz1DYrx4ptHUbJEH658z1StCKivUrs23SrSRwWNA6CDbpfl1gxGJDdCawxRV2RBaaDQ==
+  dependencies:
+    "@tamagui/animations-css" "1.110.1"
+    "@tamagui/animations-moti" "1.110.1"
+    "@tamagui/animations-react-native" "1.110.1"
+    "@tamagui/colors" "1.110.1"
+    "@tamagui/font-inter" "1.110.1"
+    "@tamagui/font-silkscreen" "1.110.1"
+    "@tamagui/react-native-media-driver" "1.110.1"
+    "@tamagui/shorthands" "1.110.1"
+    "@tamagui/themes" "1.110.1"
+    "@tamagui/web" "1.110.1"
 
 "@tamagui/constants@1.110.1":
   version "1.110.1"
@@ -2287,6 +2316,20 @@
   dependencies:
     "@tamagui/compose-refs" "1.110.1"
     "@tamagui/web" "1.110.1"
+
+"@tamagui/font-inter@1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/font-inter/-/font-inter-1.110.1.tgz#39ba57269c0fd81dce0fd4e02554c58217ccff9e"
+  integrity sha512-nG4T3ebw8GCwfY2O5zEsXCy6fkwhF4grr1YySnJMNv6ICBLGNtth4ss1nns0b0cj+6b/u3QN1/BdzQYZ/2W9mg==
+  dependencies:
+    "@tamagui/core" "1.110.1"
+
+"@tamagui/font-silkscreen@1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/font-silkscreen/-/font-silkscreen-1.110.1.tgz#e7b500496a4be17d40adfb5f5d2eed5d9bba1a5c"
+  integrity sha512-6qyAIdrtz+VHMWWETQQX6XktZUg7g6bB0n1iIEU8VlocL1+7diXqKEDbuLZzQ8MmRKXgNFmFjPh7j6Ec3P/Aqg==
+  dependencies:
+    "@tamagui/core" "1.110.1"
 
 "@tamagui/font-size@1.110.1":
   version "1.110.1"
@@ -2795,6 +2838,16 @@
   integrity sha512-YSn2fUv4X/C/PnJlYg1PJyMV/dUA93XtdOdEEMNy6lv+RjFrww0BQ531IR1pR3zS6knIQDpFs+SWQQQVCdNivQ==
   dependencies:
     "@tamagui/constants" "1.110.1"
+    "@tamagui/web" "1.110.1"
+
+"@tamagui/themes@1.110.1":
+  version "1.110.1"
+  resolved "https://registry.yarnpkg.com/@tamagui/themes/-/themes-1.110.1.tgz#11a9a0b7066529d53859b3ac2d2db5d5e940edfc"
+  integrity sha512-slmnORuXGFip2z0ma/ez26n9Xa5DN0IXsGehkbNyVWPV62iDFxqIfUNKrpKSPVAol4UcgZF6GX0itMg4aBkkyw==
+  dependencies:
+    "@tamagui/colors" "1.110.1"
+    "@tamagui/create-theme" "1.110.1"
+    "@tamagui/theme-builder" "1.110.1"
     "@tamagui/web" "1.110.1"
 
 "@tamagui/timer@1.110.1":
