@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, DisplayText, List } from "@/Components";
 import { FormatUtils } from "@/Utils";
 import {
@@ -8,73 +8,69 @@ import {
 } from "../../Components/";
 import Mixins from "@/Core/Mixins";
 import Colors from "@/Core/Colors";
+import { CryptoDataAPI } from "@/API";
+import { ICryptoData } from "@/Types";
+import { Spinner } from "tamagui";
 
 const MARGIN_BOTTOM = Mixins.s(26);
 
-const cryptoData = [
-  {
-    id: "1",
-    name: "Bitcoin",
-    abbreviation: "BTC",
-    image:
-      "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-    price: 599900,
-    marketCap: 599900000,
-    volume24h: 599900000,
-    allTimeHigh: 599900000,
-  },
-  {
-    id: "2",
-    name: "Ethereum",
-    abbreviation: "ETH",
-    image:
-      "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
-    price: 299900,
-    marketCap: 299900000,
-    volume24h: 299900000,
-    allTimeHigh: 299900000,
-  },
-  {
-    id: "3",
-    name: "Binance Coin",
-    abbreviation: "BNB",
-    image:
-      "https://assets.coingecko.com/coins/images/825/large/binance-coin-logo.png?1547034615",
-    price: 45000,
-    marketCap: 75000000,
-    volume24h: 45000000,
-    allTimeHigh: 50000000,
-  },
-  {
-    id: "4",
-    name: "Cardano",
-    abbreviation: "ADA",
-    image:
-      "https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860",
-    price: 1500,
-    marketCap: 10000000,
-    volume24h: 5000000,
-    allTimeHigh: 2000000,
-  },
-  {
-    id: "5",
-    name: "Ripple",
-    abbreviation: "XRP",
-    image:
-      "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
-    price: 1200,
-    marketCap: 50000000,
-    volume24h: 30000000,
-    allTimeHigh: 35000000,
-  },
-];
-
 const CryptoOverview = () => {
-  const [selectedCrypto, setSelectedCrypto] = useState(cryptoData[0]);
+  const [cryptoData, setCryptoData] = useState<ICryptoData[]>([]);
+  const [selectedCrypto, setSelectedCrypto] = useState<ICryptoData | null>(
+    null,
+  );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCryptoData = async () => {
+      try {
+        const data = await CryptoDataAPI.getCryptoData({ limit: 5 });
+        setCryptoData(data);
+        if (
+          !selectedCrypto ||
+          !data.find((crypto) => crypto.id === selectedCrypto.id)
+        ) {
+          setSelectedCrypto((prevSelectedCrypto) => {
+            const existingCrypto = data.find(
+              (crypto) => crypto.id === prevSelectedCrypto?.id,
+            );
+            return existingCrypto ? existingCrypto : data[0];
+          });
+        }
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load cryptocurrency data");
+        setLoading(false);
+      }
+    };
+
+    fetchCryptoData();
+
+    const interval = setInterval(fetchCryptoData, 30000); // Poll every 10 seconds
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, [selectedCrypto]);
+
+  if (loading) {
+    return (
+      <Box flex={1} justifyContent="center" alignItems="center">
+        <Spinner color={Colors.primary} size={"large"} />
+      </Box>
+    );
+  }
+
+  if (error || !selectedCrypto) {
+    return (
+      <Box flex={1} justifyContent="center" alignItems="center">
+        <DisplayText>{error}</DisplayText>
+      </Box>
+    );
+  }
 
   return (
-    <Box>
-      <Box mb={MARGIN_BOTTOM} padding={Mixins.s(28)}>
+    <Box flex={1}>
+      <Box padding={Mixins.s(28)}>
         <Box
           flexDirection="row"
           justifyContent="space-between"
@@ -107,7 +103,7 @@ const CryptoOverview = () => {
           />
         </Box>
       </Box>
-      <Box>
+      <Box flex={1}>
         <List
           data={cryptoData}
           renderItem={({ item }) => (
