@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import { Box } from "@/Components";
 import { useFonts } from "expo-font";
+import { TamaguiProvider } from "tamagui";
+import config from "./tamagui.config";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,10 +25,11 @@ export default function App() {
     return null; // Render nothing until fonts are loaded
   }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TamaguiProvider config={config}>
+      <Box style={styles.container}>
+        <StatusBar style="auto" />
+      </Box>
+    </TamaguiProvider>
   );
 }
 
