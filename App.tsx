@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, Platform } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import { TamaguiProvider } from "tamagui";
@@ -40,5 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+    paddingTop: Platform.OS === "android" ? 16 : 0,
   },
 });
