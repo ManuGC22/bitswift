@@ -1,5 +1,4 @@
 export { default as Box } from "./Box";
-export type { IBoxProps } from "./Box";
 
 export { default as Card } from "./Card";
 export type { ICardProps } from "./Card";
@@ -12,3 +11,6 @@ export type { IOverlayLoaderProps } from "./OverlayLoader";
 
 export { default as List } from "./List";
 export type { IListProps } from "./List";
+
+export { default as Image } from "./Image";
+export type { IImageProps } from "./Image";
