@@ -18,7 +18,7 @@ export default function App() {
 
   useEffect(() => {
     if (loaded) {
-      // Add splash screen
+      // Loaded fonts
     }
   }, [loaded]);
 
