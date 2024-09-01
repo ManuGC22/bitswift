@@ -1,9 +1,5 @@
-import { View, ViewProps } from "tamagui";
+import { View } from "tamagui";
 
-export interface IBoxProps extends ViewProps {}
-
-const Box = ({ children, ...props }: IBoxProps) => {
-  return <View {...props} />;
-};
+const Box = View;
 
 export default Box;
