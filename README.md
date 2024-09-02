@@ -4,11 +4,20 @@ BitSwift is a mobile app that allows users to easily access market information a
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [API Integration](#api-integration)
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Yarn or npm**: While this project was initially set up using Yarn, you can also use npm. If you prefer npm, replace the Yarn commands with the equivalent npm commands (e.g., use `npm install` instead of `yarn install`).
+- **CoinGecko API Key**: Obtain a CoinGecko API key and add it to your `.env` file in the project root directory.
+
 
 ## Features
 
